@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Background Slide</title>
+
+<link rel="stylesheet" href="fcss.css" />
+<style>
+  body {
+    margin: 0;
+    padding: 50;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+  }
+  
+  .slider-containers {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  .slides {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+</style>
+</head>
+<body>
+<div class="slider-containers">
+  <div class="slides" style="background-image: url('b.jpg');"></div>
+  <div class="slides" style="background-image: url('b4.jpg');"></div>
+  <div class="slides" style="background-image: url('b2.jpg');"></div>
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slides');
+  let currentSlides = 0;
+
+  function showSlides(slidesIndex) {
+    slides.forEach((slides, index) => {
+      if (index === slidesIndex) {
+        slides.style.opacity = 1;
+      } else {
+        slides.style.opacity = 0;
+      }
+    });
+  }
+
+  function nextSlides() {
+    currentSlides = (currentSlides + 1) % slides.length;
+    showSlides(currentSlides);
+  }
+
+  setInterval(nextSlides, 500); // Change slide every 5 seconds
+</script>
+
+<div class="navbar">
+  <a class="active" href="#">Home</a>
+  <a href="#">Search</a>
+  <a href="#">Contact</a>
+  <a href="#">Login</a>
+</div>
+
+ <div class="slideshow-container">
+        <div class="slide">
+            <img src="b.jpg" alt="Image 1" style="width:500px;height:600px;" >
+            <div class="image-details">
+                <h2>Image 1</h2>
+                <p>Details about Image 1.</p>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="b2.jpg" alt="Image 2"  style="width:500px;height:600px;">
+            <div class="image-details">
+                <h2>Image 2</h2>
+                <p>Details about Image 2.</p>
+            </div>
+			
+        </div>
+        <div class="slide">
+            <img src="a.jpg" alt="Image 2" style="width:500px;height:600px;" >
+            <div class="image-details">
+                <h2>Image 2</h2>
+                <p>Details about Image 2.</p>
+            </div><!-- Add more slides here -->
+    </div>
+</body>
+</html>

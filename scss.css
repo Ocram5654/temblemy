@@ -1,0 +1,359 @@
+/* Style the navigation menu */
+.navbar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+}
+
+/* Navigation links */
+.navbar a {
+  float: left;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  width: 23%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
+  text-align: center; /* If you want the text to be centered */
+}
+
+/* Add a background color on mouse-over */
+.navbar a:hover {
+  background-color: #000;
+}
+
+/* Style the current/active link */
+.navbar a.active {
+  background-color: #04AA6D;
+}
+
+/* Add responsiveness - on screens less than 500px, make the navigation links appear on top of each other, instead of next to each other */
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+    width: 50%;
+    text-align: left; /* If you want the text to be left-aligned on small screens */
+  }
+}
+
+
+body {
+  
+  height: 30vh;
+  overflow: hidden;
+ 
+  
+  
+}
+.all {
+  display: flex;
+  perspective: 10px;
+  transform: perspective(300px) rotateX(20deg);
+  will-change: perspective;
+  perspective-origin: center center;
+  transition: all 1.3s ease-out;
+  justify-content: center;
+  transform-style: preserve-3d;
+}
+.all:hover {
+  perspective: 1000px;
+  transition: all 1.3s ease-in;
+  transform: perspective(10000px) rotateX(0deg);
+  .text {
+    opacity: 1;
+  }
+  & > div {
+    opacity: 1;
+    transition-delay: 0s;
+  }
+  .explainer {
+    opacity: 0;
+  }
+}
+
+.left, .center, .right, .lefter, .righter {
+  width: 200px;
+  height: 150px;
+  transform-style: preserve-3d;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  box-shadow: 0 0 20px 5px rgba(100, 100, 255, .4);
+  opacity: 0;
+  transition: all .3s ease;
+  transition-delay: 1s;
+  position: relative;
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: #58d;
+  cursor: pointer;
+  background-blend-mode: color-burn;
+  
+  &:hover {
+    box-shadow: 0 0 30px 10px rgba(100, 100, 255, .6);
+  background-color: #ccf;
+  }
+}
+.text {
+  transform: translateY(30px);
+  opacity: 0;
+  transition: all .3s ease;
+  bottom: 0;
+  left: 5px;
+  position: absolute;
+  will-change: transform;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(100, 100, 255, .6)
+}
+.lefter {
+   
+  transform: translateX(-60px) translateZ(-50px) rotateY(-10deg) ;
+  background-image: url(https://w7.pngwing.com/pngs/360/232/png-transparent-computer-icons-the-book-thief-book-angle-rectangle-curriculum.png);
+  
+}
+.left {
+  transform: translateX(-30px) translateZ(-25px) rotateY(-5deg);
+  background-image: url(https://cdn-icons-png.flaticon.com/512/6913/6913148.png);
+}
+.center {
+  opacity: 1;
+  background-image: url(https://e1.pngegg.com/pngimages/410/457/png-clipart-wordcons-old-text.png);
+}
+.right {
+  transform: translateX(30px) translateZ(-25px) rotateY(5deg);
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAmVBMVEX///8lFhEAAAD4+Pj09PTy8vL7+/v8/PwlFxElFRD//v/u7u4XAAAIAAAmFxMlFQ8PAAAVAAAhEAkcCAAaAACCgYDp6emtq6ulo6MrJiRPTErT09PKycg0LSwcFRIhDQezs7FWVVJ+fHvAv79zcnElHBkdDACRkI/g3t4XDAlKR0dtamo8ODadmpkqGxWLiolhX14eEQ0kHx8jMOEkAAAJlklEQVR4nO1da1viOhBOc20p0NJyUVEB8YKKwtn//+POTEoF97Bn0cWXPm5e94OwyGSauWUymQgREBAQEBAQEBAQEBAQEICE1hZKz2oFpSe0UxpK0IjUQQlqeqbIh2otsQikp40yzuDoWaNSh3yiJKIKSc9pIonUe2esUkh6ShmB03pLJsamQBFVZGIMVGRSq4lLnF1TKdlRpMgoRzYG6QqV1UijRlbUCAOUGGuMtUgjQ+oAfaAkoMIgPb33ScDwyTGHCvhINcFoC+PQETGjgeEhkSLuNI5gytGhxdk1R6GhQFpRrxNAgiQtSI0gEVUGun5hYmgritN4hk3RHCpoJENwqQYvQVPwqh7s6gXU8Z4KWJkJCAgICAgICAgICPjboTQwPSZ4L0xBk7jCKe0cNKOjFDbfwVt90A1pTrBAV+ckNNDdN2JPW2zCg/QQm/AgvQ/5h4CAgICAgICAgIC/EOi1hzXo/XKuGEUSxNb+Cd4uVw5KUWtgxa+veDDISiBlDHZJTtOnLFIrtDDWAQlyCscCRcaRlQEm4pzmGmqgiCpSCC6nhBEUhiuokSJKD9QiCSrO+0EzqQJ60saXUyJ10LJCQE++aD47gaPnyymRM2iZQw00a9bvLuCUQnMBLjD77ogc/8DMjON6WOQhSeME6TzOUShkib/gI67ovRrLp8GABHn2oEbG8JIJSJBPTGDnUCtsRbMz0COujKMtsudGtA74mIU6Xo8jnbQZy4vDPgg2NEeDyrPO7akH8YVw7u4+TuTDN66pn/WiKH6V01OP48swkN0oSeJYjk89ki+BE2fEYET/okIuTj2aL8FcRlk79ixOztU3VMWFjGI5f0yIwShpP516OMcGLfSuJwk5Cuk5jKL8+ZsZ1JZYlnG5bOmaQ+8zvg9osm7zKMmHQsss9hx2EznamcRDArkmw4oHSZ5+LpjDaIPsvc8YzE81uqNgLrOuHAjmsIhrFpNdn/EgO8OTDe8P4TjcLrr9KuIesZhWuhjfn1cLpBYzGPefGm56/mc9N8wTUrtNz6YXmbzNYttz7RmkWOeDIbkC9oPx9P4nV7ycxF7pqhHd9rcsss8QzODra04P4ewDBA33aPmzMX8M/ER/cVR81o4i+VK/GtX+olJFfn8l48n5WCbJB4I56zuK/PGwPwDN24rVM/3J8g9kFPVmtY6RHkZbWxOxz1h1Xrvy0lHIUzwePGartMBm/3hbsSa43m2TNpJxXFzrVsXhVGa7UxiT9q1IRHukgs9lrZgHQStwLUElNoKVbcqJinoiSfh2PN906w7f3GI7SrI7J8aPGUvt6mCC0OZh75B2JtuIbNghoXxTwj0MstfIOBa46dHkxhH92myfQVj3iafLzYur4jUjg1kNmv3+Hg6TNlvUddllsc1k4x0/m5KoeKxUcZYncfGjlqZhHZTuTiCx9chptbuiUtDiquGdH9JO0mZfPuMXgw7Zkp3w80Xum8IqbVP/V9Jbn2bkh6El1u3HVZvD6heezm4ckzvYuo9lsXUUcW1p1v4D5A79a+/4G6yKI5kP5h0WPTkmMxonm6hlg/HbJMZxzaH0qd+0DgRieudy/5c3AanMcj3ykWexvCLNKs/fTce6XXPRKTesblKL47dQh1lE9h39CFpi1mcRu/Y+oUji7m4cRqyuO5kPZKJCXj73I3b+5QXLaIvt7FYzy8ZmcUZyciXYK1TzkSW7uV9nZ52NLSUGK7GkR+CdAzG5LN84jJPOzWkY+B2GHTacrTed4oFuhdT6hLdnsDOmZf+UP1VblRa5klpMyQjFDU2Lz/qlt/QXpQ9PonL5xp9l3xh7JYvLx8qpr9txuROHnknPfzf6p8f2p4k5Y4qxvcxNZbyxktvwhFQ094qWJP2rzdtGvs99z/r+73oPNzJOJufNc/wkm7lXn+V9xSGFmFtPeCGTrg/Z8iddvz3dzSiynHJQF5czWnAlcQMd/6zMpH/uleHv5u+sxXgte0k3yvLZzpuD999wJoukm2Tn/Fv22riE6khGFL4InoxBzm7gncWnWUsHUibyef9fVxhcyc6k+CHYHBdNc/xGUsy8+d2dF90i/8lrE4/u7Pp3XmA4WkuvvovrsmGOf1b6jC+jxXK6fwIOiTf11Fsis+yVy1OtcfeAZLTc0bDVEXay1UzmzdnyZ3edv6XTOD47xreS4o6assyYldFXxMsvsin74VO/KOrszSKpdLhgDD9TkDOXh+cX/4vjTX8qC17tZdf1G2Yxnj6sbp/+kT/j6nn1MB0vDqa96Hx+mWHU0YRq1q9W53JhF5cvg+V1LmUn7/Xvkyo5GsdJkmSTomznG0Z/XLzMD6t5Ss8Hv//QXliljtWDps7Td4urOynzdlEkPkkRJ8RaUdz38g4xlS+fLp5fRqP5IjUfSeXap+mnRuWcOVZLGFPnCGNa9PKiIqElfpZN+sxYfn51sXoZXQ6Hn2+xc/OZZYbRWukjtfWZ9d/y9DRrSdFv85R1nm4eRuNFrQmatOLT5EYfnwp7xP4zlR3lzES/zSp2d7sizrZiyOsIp4z5fAWu/biwcdX9sXamaMmTTPo8a1e3g/nlPuvlz4Ugzy6RhFp1tI43FySQF89n83qxu6+owmho1ymhzBGvmLkkq19/2S8qRlyqrIbeGMKnwZDnB2kClUP2urfOCGyXK/BhqVRAN4etsXz6DHl2SSmHvDHE+MvIcNvRJKIaeryHSWkBLHxJ2fniTtJbjb1Ljls9YM8w8K09yMIlckka6Sb89TJQT5+ib/DgXoHYfo/QVg8e6OsmHD7BCt9dad52TkBAQEBAQEBAQEDAtwb+sAY0GcArVws9ruFznEB6vvsUtLelRp/S4s6IULHhk33Y04TGAltsiffHwmAksfTcyU5pBQQEBAQEBAQEBDQZ2JsRhPhVU5Evg0VXdWh7pNabh4I7pYM7p0DXj7SYS6Fio+zxKn4PgfONvYGKyBfNQu+2Vd9bRJ0wJKK4bKpjI4O8wcMXiVugiKqUrDZ0CpU+YpH4AeBcMbZxOV+8BC1KtxZ605Px9X84kLiAa/80KyKQoGaxwaWm+coerY93pu+30IZP2wCT04afp8JpBcmnIbsNvBOFL31xwLuz2EcA+ymziAI1oqovxkZO/goWHD1ySQ66YOLyYuwNHgp9g4eD3n0m2JCCNxQF9ooSga+CZzsKJhiK0gMCAgICAgICAgL+SiA7JzDQF6P6ymlkFsBpZbF77cQgtPqdr2IAp6oseCNaY68IF9Wt5Eh6cD08wS1qDemKGRAQcAD+BfWkYAoKNqoVAAAAAElFTkSuQmCC);
+}
+.righter {
+  transform: translateX(60px) translateZ(-50px) rotateY(10deg);
+  background-image: url(https://cdn3.iconfinder.com/data/icons/other-icons/48/search-512.png);
+}
+.explainer {
+  font-weight: 300;
+  font-size: 2rem;
+  color: #fff;
+  transition: all .6s ease;
+  width: 100%;
+  height: 100%;
+  background-color: #303050;
+  background-image: radial-gradient(circle at center top, #cce, #33a);
+  border-radius: 10px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, .8);
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.ref {
+  background-color: #000;
+  background-image: linear-gradient(to bottom, #d80, #c00);
+  border-radius: 3px;
+  padding: 7px 10px;
+  position: absolute;
+  font-size: 16px;
+  bottom: 10px;
+  right: 10px;
+  color: #fff;
+  text-decoration: none;
+  text-shadow: 0 0 3px rgba(0, 0, 0, .4);
+  &::first-letter {
+    font-size: 12px;
+  }
+}
+
+/* fonts  */
+@import url('https://fonts.googleapis.com/css?family=Abel|Aguafina+Script|Artifika|Athiti|Condiment|Dosis|Droid+Serif|Farsan|Gurajada|Josefin+Sans|Lato|Lora|Merriweather|Noto+Serif|Open+Sans+Condensed:300|Playfair+Display|Rasa|Sahitya|Share+Tech|Text+Me+One|Titillium+Web');
+
+body {
+background: #a4a2b0;
+	background-image: linear-gradient( 135deg, #212420 10%, #161617 100%);
+	background-attachment: fixed;	
+	background-size: cover;
+	}
+
+#container{
+	box-shadow: 0 15px 30px 1px rgba(128, 128, 128, 0.31);
+	background: rgba(255, 255, 255, 0.90);
+	text-align: center;
+	border-radius: 5px;
+	overflow: hidden;
+	margin: 5em auto;
+	height: 350px;
+	width: 700px;
+	
+}
+
+
+
+/* 	Product details  */
+.product-details {
+	position: relative;
+	text-align: left;
+	overflow: hidden;
+	padding: 30px;
+	height: 100%;
+	float: left;
+	width: 40%;
+
+}
+
+/* 	Product Name */
+#container .product-details h1{
+	font-family: 'Old Standard TT', serif;
+	display: inline-block;
+	position: relative;
+	font-size: 34px;
+	color: #344055;
+	margin: 0;
+	
+}
+
+#container .product-details h1:before{
+	position: absolute;
+	content: '';
+	right: 0%; 
+	top: 0%;
+	transform: translate(25px, -15px);
+	font-family: 'Farsan', cursive;
+	display: inline-block;
+	background: #FFA69E;
+	border-radius: 5px;
+	font-size: 14px;
+	padding: 5px;
+	color: #FFF;
+	margin: 0;
+	animation: chan-sh 6s ease infinite;
+
+}
+
+
+@keyframes chan-sh {
+	from  {content: 'free shipping';}
+	to  {content: 'New';}
+	
+}
+
+/*Product Rating  */
+.hint-star {
+	display: inline-block;
+	margin-left: 0.5em;
+	color: gold;
+	width: 50%;
+}
+
+
+/* The most important information about the product */
+#container .product-details > p {
+	font-family: 'Farsan', cursive;
+	text-align: center;
+	font-size: 20px;
+	color: #7d7d7d;
+	
+}
+
+/* control */
+
+.control{
+	position: absolute;
+	bottom: 20%;
+	left: 22.8%;
+	
+}
+/* the Button */
+.btn {
+	transform: translateY(0px);
+	transition: 0.3s linear;
+	background: #49C608;
+	border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+	cursor: pointer;
+	outline: none;
+	border: none;
+	color: #eee;
+	padding: 0;
+	margin: 0;
+	
+}
+
+.btn:hover{transform: translateY(-4px);}
+
+.btn span {
+	font-family: 'Farsan', cursive;
+	transition: transform 0.3s;
+	display: inline-block;
+  padding: 10px 20px;
+	font-size: 1.2em;
+	margin:0;
+	
+}
+/* shopping cart icon */
+.btn .price, .shopping-cart{
+	background: #333;
+	border: 0;
+	margin: 0;
+}
+
+.btn .price {
+	transform: translateX(-10%); padding-right: 15px;
+}
+
+/* the Icon */
+.btn .shopping-cart {
+	transform: translateX(-100%);
+  position: absolute;
+	background: #333;
+	z-index: 1;
+  left: 0;
+  top: 0;
+}
+
+/* buy */
+.btn .buy {z-index: 3; font-weight: bolder;}
+
+.btn:hover .price {transform: translateX(-110%);}
+
+.btn:hover .shopping-cart {transform: translateX(0%);}
+
+
+
+/* product image  */
+.product-image {
+	transition: all 0.3s ease-out;
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+	height: 100%;
+	float: right;
+	width: 50%;
+	display: inline-block;
+}
+
+#container img {width: 100%;height: 100%;}
+
+.info {
+    background: rgba(27, 26, 26, 0.9);
+    font-family: 'Farsan', cursive;
+    transition: all 0.3s ease-out;
+    transform: translateX(-100%);
+    position: absolute;
+    line-height: 1.9;
+    text-align: left;
+    font-size: 120%;
+    cursor: no-drop;
+    color: #FFF;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+.info h2 {text-align: center}
+.product-image:hover .info{transform: translateX(0);}
+
+.info ul li{transition: 0.3s ease;}
+.info ul li:hover{transform: translateX(50px) scale(1.3);}
+
+.product-image:hover img {transition: all 0.3s ease-out;}
+.product-image:hover img {transform: scale(1.2, 1.2);}
