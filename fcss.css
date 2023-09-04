@@ -67,7 +67,7 @@
 }
 
 .containers .cards:hover .faces.faces1{
-    background: #ff0057;
+    background:#008cff;
     transform: translateY(0);
 }
 
